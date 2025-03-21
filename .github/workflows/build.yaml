@@ -51,7 +51,7 @@ jobs:
       - name: Setup Kustomize
         uses: imranismail/setup-kustomize@v1
 
-P1+r4632=1B5B32347E\P0+r\P0+r\P1+r6B62=7F\P0+r\P1+r6B44=1B5B337E\P1+r6B68=1B4F48\P1+r4037=1B4F46\P1+r6B50=1B5B357E\P1+r6B4E=1B5B367E\      - name: Checkout kustomize repository
+      - name: Checkout kustomize repository
         uses: actions/checkout@v2
         with:
           repository: YooDale/k8s-manifest-repo
@@ -61,9 +61,9 @@ jobs:
 
       - name: Update Kubernetes resources
         run: |
-          echo \${{ steps.login-ecr.outputs.registry }}
-          echo \${{ steps.image-info.outputs.ecr_repository }}
-          echo \${{ steps.image-info.outputs.image_tag }}
+          echo ${{ steps.login-ecr.outputs.registry }}
+          echo ${{ steps.image-info.outputs.ecr_repository }}
+          echo ${{ steps.image-info.outputs.image_tag }}
           cd k8s-manifest-repo/base
           kustomize edit set image \${{ steps.login-ecr.outputs.registry}}/\${{ steps.image-info.outputs.ecr_repository }}=\${{ steps.login-ecr.outputs.registry}}/\${{ steps.image-info.outputs.ecr_repository }}:\${{ steps.image-info.outputs.image_tag }}
           cat kustomization.yaml
