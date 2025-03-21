@@ -1,5 +1,4 @@
 name: Build Front
-
 on:
   push:
     branches: [ main ]
@@ -31,7 +30,7 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v1
 
       - name: Get image tag(verion)
-        id:P0+r\ image
+        id: image
         run: |
           VERSION=$(echo ${{ github.sha }} | cut -c1-8)
           echo VERSION=$VERSION
