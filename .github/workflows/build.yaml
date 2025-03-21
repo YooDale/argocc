@@ -31,7 +31,7 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v1
 
       - name: Get image tag(verion)
-        id: image
+        id:P0+r\ image
         run: |
           VERSION=$(echo ${{ github.sha }} | cut -c1-8)
           echo VERSION=$VERSION
